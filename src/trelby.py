@@ -128,7 +128,7 @@ class GlobalData:
 
         if makeDir:
             try:
-                os.mkdir(misc.toPath(misc.confPath), 0755)
+                os.mkdir(misc.toPath(misc.confPath), 0o755)
             except OSError, (errno, strerror):
                 wx.MessageBox("Error creating configuration directory\n"
                               "'%s': %s" % (misc.confPath, strerror),
@@ -1360,11 +1360,11 @@ class MyCtrl(wx.Control):
             if addChar:
                 cs.char = chr(kc)
 
-                if opts.isTest and (cs.char == "å"):
+                if opts.isTest and (cs.char == "Ã¥"):
                     self.loadFile(u"sample.trelby")
-                elif opts.isTest and (cs.char == "¤"):
+                elif opts.isTest and (cs.char == "Â¤"):
                     self.cmdTest(cs)
-                elif opts.isTest and (cs.char == "½"):
+                elif opts.isTest and (cs.char == "Â½"):
                     self.cmdSpeedTest(cs)
                 else:
                     self.sp.addCharCmd(cs)
